@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Catalog App</title>
+    <meta name="description" content="Catalog App">
+    <meta name="author" content="Hemant Chaudhari">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/css/materialize.min.css">
+	<style>
+		.signin .logoutLoginBtn.btn{margin-right:10px;}
+		.logoLink.brand-logo{margin-left:10px;}	
+	</style>
+</head>
+
+<body>
+<div class="container ">
+    <nav class="purple darken-4">
+        <div class="nav-wrapper">
+            <a href="/" class="brand-logo logoLink">Catalog App</a>
+            <ul id="nav-signin" class="right hide-on-med-and-down signin">
+                {% if 'username' in login_session %}
+                    <button class="waves-effect waves-light orange darken-3 btn logoutLoginBtn"><a href="{{ url_for('auth.gdisconnect') }}">Logout</a></button>
+                {% else %}
+                    <button class="waves-effect waves-light orange darken-3 btn logoutLoginBtn"><a href="{{ url_for('auth.show_login') }}">Login</a></button>
+                {% endif %}
+
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Layout here -->
+    <div class="row">
+        <div class="col s3">
+            <!-- Grey navigation panel -->
+            <h5>Categories</h5>
+
+            <div class="collection">
+
+                {% for item in categories %}
+                    <a class="collection-item" href='{{ url_for('itemcatalog.catalog_items', category_name=item.name) }}'>
+                        <i class="tiny material-icons">label</i>
+                        {{ item.name }}</a>
+                {% endfor %}
+            </div>
+
+        </div>
+        <div class="col s9">
+            {% block body %} {% endblock %}
+        </div>
+
+    </div>
+
+    <!--Import jQuery before materialize.js-->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/js/materialize.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('select').material_select();
+        });
+    </script>
+
+</div>
+</body>
+
+</html>
