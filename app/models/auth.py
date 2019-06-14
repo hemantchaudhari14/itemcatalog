@@ -22,7 +22,7 @@ auth = Blueprint('auth', __name__, template_folder='templates')
 
 # Google Client ID
 CLIENT_ID = json.loads(
-    open('/media/sf_Hemant/udacity-item-catalog-app-master/app/client_secret.json', 'r').read())['web']['client_id']
+    open('/var/www/catalog/catalog/app/client_secret.json', 'r').read())['web']['client_id']
 
 
 def login_required(func):
@@ -48,7 +48,7 @@ def gconnect():
     print 'in Geconnect method 2'
     try:
         # Upgrade the authorization code into a credentials object
-        oauth_flow = flow_from_clientsecrets('client_secret.json', scope='')
+        oauth_flow = flow_from_clientsecrets('/var/www/catalog/catalog/app/client_secret.json', scope='')
         oauth_flow.redirect_uri = 'postmessage'
         credentials = oauth_flow.step2_exchange(code)
         print 'in Geconnect method 3'

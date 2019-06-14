@@ -1,3 +1,6 @@
+import sys
+sys.path.append("/var/www/catalog/catalog/venv/lib/python2.7/site-packages/")
+
 from sqlalchemy import Column, ForeignKey, Integer, String
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship
@@ -49,6 +52,7 @@ class CatalogItem(Base):
         }
 
 
-engine = create_engine('sqlite:///catalogapp.db')
+#engine = create_engine('sqlite:///catalogapp.db')
+engine = create_engine('postgresql://catalog:Sawt00th@localhost/catalog')
 
 Base.metadata.create_all(engine)

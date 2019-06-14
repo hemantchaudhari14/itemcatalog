@@ -11,7 +11,7 @@ from flask import Blueprint
 
 itemcatalog = Blueprint('itemcatalog', __name__, url_prefix="/catalog", template_folder='templates')
 
-engine = create_engine('sqlite:///catalogapp.db')
+engine = create_engine('postgresql://catalog:Sawt00th@localhost/catalog')
 Base.metadata.bind = engine
 
 DBSession = sessionmaker(bind=engine)
