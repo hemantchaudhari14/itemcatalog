@@ -6,7 +6,7 @@ This page explains how to secure and set up a Linux distribution on a virtual ma
 - The database server is [PostgreSQL](https://www.postgresql.org/).
 
 Website can be accessed on below link:
-- http://ec2-13-233-196-35.ap-south-1a.compute.amazonaws.com 
+- http://http://ec2-13-233-196-35.ap-south-1.compute.amazonaws.com 
 - http://13.233.196.35
 
 ## Get a server on Amazon Lightsail
@@ -419,10 +419,21 @@ The following prompt will be returned:
 
 - Change the ownership of the project directories: `sudo chown -R www-data:www-data catalog/`.
 - Restart Apache again: `sudo service apache2 restart`.
-- Open your browser to http://ec2-13-233-196-35.ap-south-1a.compute.amazonaws.com OR http://13.233.196.35
+- Open your browser to http://http://ec2-13-233-196-35.ap-south-1.compute.amazonaws.com OR http://13.233.196.35
 
 ## Useful commands
 
- - To get log messages from Apache server: `sudo tail /var/log/apache2/error.log`.
- - To restart Apache: `sudo service apache2 restart`.
+- To get log messages from Apache server: `sudo tail /var/log/apache2/error.log`.
+- To restart Apache: `sudo service apache2 restart`.
+ 
+## References
+
+- Udacity videos
+- UFW Docs : https://help.ubuntu.com/community/UFW
+- PostgreSQL Setup : https://www.digitalocean.com/community/tutorials/how-to-install-and-use-postgresql-on-ubuntu-16-04
+- Virtual Environments : https://modwsgi.readthedocs.io/en/develop/user-guides/virtual-environments.html
+- Flask uswgi and nginx : https://www.digitalocean.com/community/tutorials/how-to-serve-flask-applications-with-uwsgi-and-nginx-on-ubuntu-16-04
+- Flask app - deploy a flask app : https://www.digitalocean.com/community/tutorials/how-to-deploy-a-flask-application-on-an-ubuntu-vps
+- DigitalOcean, [How To Set Up SSH Keys](https://www.digitalocean.com/community/tutorials/how-to-set-up-ssh-keys--2).
+- Ubuntu Wiki, [SSH/OpenSSH/Keys](https://help.ubuntu.com/community/SSH/OpenSSH/Keys).
 
